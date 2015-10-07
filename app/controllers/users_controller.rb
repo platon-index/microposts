@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   
   def update
     if @user.update(update_user_params)
-      redirect_to 'https://techacademy-tk436920.c9.io/users/2', :notice => "プロフィールを更新しました"
+      redirect_to user_path, :notice => "プロフィールを更新しました"
     else
       render 'edit'
     end
@@ -15,7 +15,8 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-  end  
+  end
+  
   
   def new
     @user = User.new
@@ -37,6 +38,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :password,
                                  :password_confirmation)
   end
+  
   def update_user_params
     params.require(:user).permit(:name, :email, :location, :profile)
   end

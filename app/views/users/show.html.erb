@@ -16,7 +16,6 @@
       <%= @user.profile %>
     </p>
     
-    
     <p>
       <h4><span class="label label-success">Email</span></h4>
       <%= @user.email %>
@@ -30,9 +29,9 @@
     
     </br>
     
-    <a href="https://techacademy-tk436920.c9.io/users/2/edit">
-      <button type="button" class="btn btn-primary">Edit profile</button>
-    </a>
+    <button type="button" class="btn btn-default">
+    <%= link_to 'Edit profile', edit_user_path(@user) %>            
+    </button>
     
   </div>
 </div>  
