@@ -1,4 +1,17 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:edit, :update]
+  
+  def edit
+  end
+  
+  def update
+    if @user.update(update_user_params)
+      redirect_to 'https://techacademy-tk436920.c9.io/users/2', :notice => "プロフィールを更新しました"
+    else
+      render 'edit'
+    end
+  end
+  
   
   def show
     @user = User.find(params[:id])
@@ -9,7 +22,7 @@ class UsersController < ApplicationController
   end
   
   def create
-    @user = User.new(user_params)
+    @user = User.new(new_user_params)
     if @user.save
       flash[:success] = "Welcome to the Sample App!"
       redirect_to @user
@@ -20,8 +33,15 @@ class UsersController < ApplicationController
   
   private
   
-  def user_params
+  def new_user_params
     params.require(:user).permit(:name, :email, :password,
                                  :password_confirmation)
+  end
+  def update_user_params
+    params.require(:user).permit(:name, :email, :location, :profile)
+  end
+  
+  def set_user
+    @user = User.find(params[:id])
   end
 end

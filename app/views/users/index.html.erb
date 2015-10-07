@@ -1,0 +1,29 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    プロフィール
+  </div>
+
+  <div class="panel-body">
+    
+    <% @users.each do |message| %>
+
+      <span class="label label-info">
+        <%= message.name %>
+      </span>
+      
+    <%= message.body %>
+
+            (
+    <%= link_to "edit" , edit_user_path(user) %>
+    )
+
+      <br>
+    
+    <% end %>
+
+  </div>
+</div>
+
+<% #部分テンプレートを読み込んでいる %>
+
+<%= render 'form' %>
