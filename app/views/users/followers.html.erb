@@ -1,6 +1,60 @@
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <h1>フォロワー一覧</h1>
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+  
+        <%= gravatar_for @user %>
+  
+        <%= @user.name %>
+  
+      </h1>
+    </section>
+    
+    <p>
+      <h4><span class="label label-success">Profile</span></h4>
+      <%= @user.profile %>
+    </p>
+    
+    <p>
+      <h4><span class="label label-success">Email</span></h4>
+      <%= @user.email %>
+    </p>
+    
+    
+    <p>
+      <h4><span class="label label-success">Location</span></h4>
+      <%= @user.location %>
+    </p>
+    
+    </br>
+    
+    <p>
+      <button type="button" class="btn btn-default">
+        <%= link_to 'プロフィール編集', edit_user_path(@user) %>            
+      </button>
+    </p>
+    
+    </br>
+    
+    <p>
+      <button type="button" class="btn btn-default">
+        <%= link_to 'フォローしている', followings_user_path(@user) %>
+      </button>
+    </p>
+    
+    </br>
+    
+    <p>
+      <button type="button" class="btn btn-default">
+        <%= link_to 'フォローされている', followers_user_path(@user) %>            
+      </button>
+    </p>
+    
+  </aside>
+  
+  <div class="col-md-8">
+    
+    <h3>フォロワー一覧</h3>
       
       <% @followers.each do |user| %>
       
@@ -11,7 +65,7 @@
         <%= user.profile %>
         </li>
       </ul>  
-
+        
       <% end %>
-  </div>
-</div>  
+  </div>  
+</div>

@@ -6,7 +6,8 @@ class UsersController < ApplicationController
   
   def update
     if @user.update(update_user_params)
-      redirect_to user_path, :notice => "プロフィールを更新しました"
+      flash[:success] = "プロフィールを更新しました"
+      redirect_to user_path
     else
       render 'edit'
     end
