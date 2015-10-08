@@ -28,9 +28,27 @@
     
     </br>
     
-    <button type="button" class="btn btn-default">
-    <%= link_to 'Edit profile', edit_user_path(@user) %>            
-    </button>
+    <p>
+      <button type="button" class="btn btn-default">
+        <%= link_to 'プロフィール編集', edit_user_path(@user) %>            
+      </button>
+    </p>
+    
+    </br>
+    
+    <p>
+      <button type="button" class="btn btn-default">
+        <%= link_to 'フォローしている', followings_user_path(@user) %>
+      </button>
+    </p>
+    
+    </br>
+    
+    <p>
+      <button type="button" class="btn btn-default">
+        <%= link_to 'フォローされている', followers_user_path(@user) %>            
+      </button>
+    </p>
     
   </aside>
   

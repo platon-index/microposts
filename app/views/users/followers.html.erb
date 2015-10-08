@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h1>フォロワー一覧</h1>
+      
+      <% @followers.each do |user| %>
+      
+      <ul style="list-style:none;">
+        <li class="follow"> 
+        <%= gravatar_for user %>
+        <%= user.name %></br>
+        <%= user.profile %>
+        </li>
+      </ul>  
+
+      <% end %>
+  </div>
+</div>  
