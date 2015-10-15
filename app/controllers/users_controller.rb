@@ -16,10 +16,9 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @microposts = @user.microposts
+    @microposts = @user.microposts.reverse_order
     @microposts_items = Micropost.page(params[:page])
   end
-  
   
   def new
     @user = User.new

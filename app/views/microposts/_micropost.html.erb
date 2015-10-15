@@ -12,6 +12,10 @@
     <%= micropost.content %>
   </span>
   
+  <span>
+    <%= image_tag micropost.avatar.url.thumb %>
+  </span>
+  
   <span class="timestamp">
     Posted
     <%= time_ago_in_words(micropost.created_at) %>
@@ -25,4 +29,5 @@
     <% end %>
     
   </span>
+   
 </li>

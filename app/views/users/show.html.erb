@@ -28,6 +28,7 @@
       <%= @user.location %>
     </p>
     
+    
     </br>
     
     <p>
@@ -63,16 +64,15 @@
       <h3>Microposts(
       <%= @user.microposts.count %>
       )</h3>
-      <%= page_entries_info @microposts_items %><p></p>
+     
       <ol class="microposts">
         
         <%= render @microposts %>
-        
+         
       </ol>
-      <%= paginate @microposts_items %>
+     
     <% end %>
     
   </div>
 </div>
-
-</div>
+</div>  

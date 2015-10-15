@@ -1,10 +1,9 @@
 class MicropostsController < ApplicationController
   before_action :logged_in_user, only: [:create]
-  paginates_per 10
-  max_paginates_per 20
   
   def create
     @micropost = current_user.microposts.build(micropost_params)
+    @feed_items = current_user.feed_items.includes(:user).order(created_at: :desc)
     if @micropost.save
       flash[:success] = "Micropost created!"
       redirect_to root_url
@@ -24,6 +23,6 @@ class MicropostsController < ApplicationController
   private
   
   def micropost_params
-    params.require(:micropost).permit(:content)
+    params.require(:micropost).permit(:name, :content, :avatar)
   end
 end

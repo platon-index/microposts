@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   has_secure_password
+  
   has_many :microposts
   
   has_many :following_relationships, class_name:  "Relationship",
@@ -16,8 +17,9 @@ class User < ActiveRecord::Base
   has_many :follower_relationships, class_name:  "Relationship",
                                     foreign_key: "followed_id",
                                     dependent:   :destroy
-  has_many :follower_users, through: :follower_relationships, source: :follower                                  
+  has_many :follower_users, through: :follower_relationships, source: :follower  
 
+  
   #他のユーザーをフォローする
   def follow(other_user)
     following_relationships.create(followed_id: other_user.id)
@@ -34,7 +36,7 @@ class User < ActiveRecord::Base
   end
   
   def feed_items
-    Micropost.where(user_id: following_user_ids + [self.id])
+    Micropost.where(user_id: following_user_ids + [self.id]).reverse_order
   end
 
 end
