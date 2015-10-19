@@ -38,7 +38,7 @@ gem 'kaminari'
 
 # carrierwave
 gem 'carrierwave'
-# gem 'cloudinary'
+gem 'cloudinary'
 
 # Rmagick
 # gem "rmagick"  
