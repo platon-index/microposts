@@ -3,7 +3,7 @@ class MicropostsController < ApplicationController
   
   def create
     @micropost = current_user.microposts.build(micropost_params)
-    @feed_items = current_user.feed_items.includes(:user).order(created_at: :desc)
+    @feed_items = current_user.feed_items.includes(:user).page(params[:page]).order(created_at: :desc)
     if @micropost.save
       flash[:success] = "Micropost created!"
       redirect_to root_url

@@ -41,10 +41,10 @@ gem 'carrierwave'
 gem 'cloudinary'
 
 # Rmagick
-# gem "rmagick"  
+# gem 'rmagick'
 
 # Minimagick
-# gem "mini_magick"
+gem "mini_magick"
 
 # debug
 gem 'pry-byebug', group: :development
